@@ -23,7 +23,7 @@ class RandomAgent(Agent):
 class SearchAgent(Agent):
     def __init__(self, fn='depthFirstSearch', prob='FoodSearchProblem', heuristic='nullHeuristic'):
         if fn not in dir(search):
-            raise AttributeError, fn + ' is not a search function in search.py.'
+            raise AttributeError(fn + ' is not a search function in search.py.')
         func = getattr(search, fn)
         if 'heuristic' not in func.func_code.co_varnames:
             print('[SearchAgent] using function ' + fn)
@@ -34,12 +34,12 @@ class SearchAgent(Agent):
             elif heuristic in dir(search):
                 heur = getattr(search, heuristic)
             else:
-                raise AttributeError, heuristic + ' is not a function in searchAgents.py or search.py.'
+                raise AttributeError(heuristic + ' is not a function in searchAgents.py or search.py.')
             print('[SearchAgent] using function %s and heuristic %s' % (fn, heuristic))
             self.searchFunction = lambda x: func(x, heuristic=heur)
         
         if prob not in globals().keys() or not prob.endswith('Problem'):
-            raise AttributeError, prob + ' is not a search problem type in SearchAgents.py.'
+            raise AttributeError(prob + ' is not a search problem type in SearchAgents.py.')
         self.searchType = globals()[prob]
         print('[SearchAgent] using problem type ' + prob)
 
@@ -52,7 +52,7 @@ class SearchAgent(Agent):
 
         state: a GameState object (pacman.py)
         """
-        if self.searchFunction == None: raise Exception, "No search function provided for SearchAgent"
+        if self.searchFunction == None: raise Exception("No search function provided for SearchAgent")
         starttime = time.time()
         problem = self.searchType(state) # Makes a new search problem
         self.actions  = self.searchFunction(problem) # Find a path

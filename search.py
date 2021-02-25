@@ -86,10 +86,12 @@ def nullHeuristic(state, problem=None):
     """
     return 0
 
+
 # TODO 08 + 09
 '''
 students propose at least two heuristic functions for A*
 '''
+
 
 def aStarSearch(problem, heuristic=nullHeuristic):
     '''
