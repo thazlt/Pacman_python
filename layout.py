@@ -1,5 +1,3 @@
-from functools import reduce
-
 from util import manhattanDistance
 from game import Grid
 import os
