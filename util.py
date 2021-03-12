@@ -147,7 +147,7 @@ class PriorityQueue:
         self.count = 0
     #push
     def push(self,item,priority):
-        #push item into queue, if exist then change the priority
+        #push item into queue
         entry = (priority, self.count, item)
         heapq.heappush(self.heap, entry)
         self.count+=1
